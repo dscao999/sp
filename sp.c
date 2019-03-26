@@ -36,6 +36,10 @@ int main(int argc, char *argv[])
 	winfo.sflag = &sflag;
 	winfo.plen = 512;
 
+	if (argc > 1)
+		winfo.plen = atoi(argv[1]);
+	printf("The length of prime is set to: %d\n", winfo.plen);
+
 	act.sa_handler = sig_handle;
 	sigemptyset(&act.sa_mask);
 	act.sa_flags = 0;
